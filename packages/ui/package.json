@@ -30,6 +30,7 @@
     "@tailwindcss/vite": "catalog:",
     "@tsconfig/node22": "catalog:",
     "@types/bun": "catalog:",
+    "@types/dompurify": "3.2.0",
     "@types/katex": "0.16.7",
     "@types/luxon": "catalog:",
     "tailwindcss": "catalog:",
