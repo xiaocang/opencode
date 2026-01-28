@@ -1,3 +1,4 @@
+import { Flag } from "@/flag/flag"
 import { useKeyboard, useRenderer, useTerminalDimensions } from "@opentui/solid"
 import { batch, createContext, Show, useContext, type JSX, type ParentProps } from "solid-js"
 import { useTheme } from "@tui/context/theme"
@@ -141,6 +142,10 @@ export function DialogProvider(props: ParentProps) {
         onMouseUp={async () => {
           const text = renderer.getSelection()?.getSelectedText()
           if (text && text.length > 0) {
+            if (Flag.OPENCODE_EXPERIMENTAL_DISABLE_COPY_ON_SELECT) {
+              // Don't auto-copy - let it stay visible for manual copy
+              return
+            }
             await Clipboard.copy(text)
               .then(() => toast.show({ message: "Copied to clipboard", variant: "info" }))
               .catch(toast.error)

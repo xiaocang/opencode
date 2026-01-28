@@ -800,6 +800,7 @@ export namespace Config {
 
   export const TUI = z.object({
     scroll_speed: z.number().min(0.001).optional().describe("TUI scroll speed"),
+    mouse_mode: z.boolean().optional().describe("When false, disables copy-on-select behavior (default: true)"),
     scroll_acceleration: z
       .object({
         enabled: z.boolean().describe("Enable scroll acceleration"),
